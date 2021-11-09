@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        BindingList<CHocSinh> listHocSinh = null;
+        List<CHocSinh> listHocSinh = null;
         CHocSinh hshientai = null;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -59,73 +59,54 @@ namespace WindowsFormsApp1
             }
             else
             {
-                hshientai.Mshs = txtID.Text;
-                //Convert.ToInt32(txtID.Text);
-                //int.Parse(txtID.Text);
-                hshientai.Hoten = txtFullName.Text;
-                hshientai.Ngaysinh = dtBirthday.Value;
-                if (radMale.Checked == true)
-                {
-                    hshientai.Phai = radMale.Checked;
-                }
-                if (radFemale.Checked == true)
-                {
-                    hshientai.Phai = radFemale.Checked;
-                }
-                hshientai.Diachi = txtAddress.Text;
-
-                string strGender = "";
-                if (hshientai.Phai == true)
-                {
-                    strGender = "Nam";
-                }
-                else
-                {
-                    strGender = "Nữ";
-                }
-
-                //MessageBox.Show("Ma: " + hshientai.Mshs +
-                //                "\nHo ten: " + hshientai.Hoten +
-                //                "\nNgay sinh: " + hshientai.Ngaysinh.ToString() +
-                //                "\nPhai: " + strGender +
-                //                "\nDia chi: " + hshientai.Diachi
-                //                );
-
                 if (listHocSinh == null)
                 {
-                    listHocSinh = new BindingList<CHocSinh>();
+                    listHocSinh = new List<CHocSinh>();
                 }
 
-                //MessageBox.Show(listHocSinh.Count.ToString());
-                listHocSinh.Add(hshientai);
-                MessageBox.Show(listHocSinh.Count.ToString());
+                int iLengthGridView = listHocSinh.Count;
+                bool bCheck = true;
+                if (iLengthGridView > 0)
+                {
+                    for (int i = 0; i < iLengthGridView; i++)
+                    {
+                        if (listHocSinh[i].Mshs == txtID.Text)
+                        {
+                            MessageBox.Show("Mã bị trùng!");
+                            bCheck = false;
+                            txtID.Focus();
+                            break;
+                        }
+                    }
+                }
 
-                //if (listHocSinh[0].Phai == true)
-                //{
-                //    strGender = "Nam";
-                //}
-                //else
-                //{
-                //    strGender = "Nữ";
-                //}
+                if (bCheck == true)
+                {
+                    hshientai.Mshs = txtID.Text;
+                    hshientai.Hoten = txtFullName.Text;
+                    hshientai.Ngaysinh = dtBirthday.Value;
+                    if (radMale.Checked == true) // Nam
+                    {
+                        hshientai.Phai = true;
+                    }
+                    if (radFemale.Checked == true) // Nu
+                    {
+                        hshientai.Phai = false;
+                    }
+                    hshientai.Diachi = txtAddress.Text;
 
-                //MessageBox.Show("Ma: " + listHocSinh[0].Mshs +
-                //                "\nHo ten: " + listHocSinh[0].Hoten +
-                //                "\nNgay sinh: " + listHocSinh[0].Ngaysinh.ToString() +
-                //                "\nPhai: " + strGender +
-                //                "\nDia chi: " + listHocSinh[0].Diachi
-                //                );
+                    listHocSinh.Add(hshientai);
+                    dgvStudentList.DataSource = listHocSinh.ToList();
 
-                dgvStudentList.DataSource = listHocSinh;
-
-                // Reset.
-                hshientai = null;
-                txtID.Text = string.Empty;
-                txtFullName.Text = string.Empty;
-                dtBirthday.Value = DateTime.Today;
-                txtAddress.Text = string.Empty;
-                radFemale.Checked = false;
-                radMale.Checked = false;
+                    // Reset.
+                    hshientai = null;
+                    txtID.Text = string.Empty;
+                    txtFullName.Text = string.Empty;
+                    dtBirthday.Value = DateTime.Today;
+                    txtAddress.Text = string.Empty;
+                    radFemale.Checked = false;
+                    radMale.Checked = false;
+                }    
             }
         }
     }

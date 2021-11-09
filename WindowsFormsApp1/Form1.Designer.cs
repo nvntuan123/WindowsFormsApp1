@@ -29,8 +29,8 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@ namespace WindowsFormsApp1
             this.dgvColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColSex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgvColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentList)).BeginInit();
@@ -207,14 +207,14 @@ namespace WindowsFormsApp1
             // 
             // dgvStudentList
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudentList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudentList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStudentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColID,
@@ -224,8 +224,8 @@ namespace WindowsFormsApp1
             this.dgvColAddress});
             this.dgvStudentList.Location = new System.Drawing.Point(15, 179);
             this.dgvStudentList.Name = "dgvStudentList";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgvStudentList.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dgvStudentList.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudentList.Size = new System.Drawing.Size(627, 189);
             this.dgvStudentList.TabIndex = 9;
             // 
@@ -257,6 +257,7 @@ namespace WindowsFormsApp1
             this.dgvColSex.HeaderText = "Phái";
             this.dgvColSex.Name = "dgvColSex";
             this.dgvColSex.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvColSex.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgvColSex.Width = 60;
             // 
             // dgvColAddress
@@ -318,7 +319,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColFullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColBirthday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColSex;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dgvColSex;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColAddress;
     }
 }
